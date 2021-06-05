@@ -6,20 +6,38 @@
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container">
         <a href="/admin" class="navbar-brand d-flex align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-            class="bi bi-bag-check-fill" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
           </svg>
-          <strong>Tecla-Do Libre</strong>
+          <strong>Tecla-Presupuestos</strong>
 
         </a>
-
-        <span style="text-align: center;margin-left: 20px;">
-          <div>
-            <a href="/" class="Sing-in-up">Cerrar sesión</a>
+       
+        <span style="text-align: center;margin-left: 15px;">
+          <div >
+           <div id="usuario" style="
+           color: white;
+       ">
+            
+           </div>
+            
+              
+            <a href="/login" class="Sing-in-up">Cerrar sesión</a>
+           
           </div>
+          
         </span>
       </div>
     </div>
+    <script>
+        
+      const usuario= document.getElementById("usuario")
+      usuario.innerHTML +=""
+      let resultado = JSON.parse(localStorage.getItem('dataUsuario'))
+      usuario.innerHTML += `<a> ${resultado.nombre}</a>`
+
+
+      
+      </script>
   </header>

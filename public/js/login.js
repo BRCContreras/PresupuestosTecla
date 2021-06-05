@@ -49,9 +49,9 @@ iniciarSesion.addEventListener('click', async (event) => {
         data.token = vuelta.token;
         Usuarios.guardaUsuario(data);
         if(data.permiso === 1){
-            location.href = '/admin'
+            location.href = '/index'
         } else {
-       location.href = 'https://teclerchallenge.000webhostapp.com/'
+       location.href = '/index'
         }
     }
 })

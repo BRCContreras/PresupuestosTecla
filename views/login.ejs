@@ -1,4 +1,4 @@
-<%- include("cabeceras/cabecera") %>
+<%- include("headers/cabecera") %>
 <body class="text-center">
     
     <main class="form-signin">
@@ -18,12 +18,12 @@
           <a href="/registro" class="btn btn-secondary btn-lg " tabindex="-1" role="button" aria-disabled="true">Registrarse</a>
           <a href="" id="submit" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Iniciar sesión</a>
         </div>
-        <p class="mb-1">&copy; 2021 Tienda Virtual Tecla</p>
+        <p class="mb-1">&copy; 2021 Presupuestos Tecla</p>
       </form>
     </main>
 
     <script src="js/login.js"></script>
-
+    <script>localStorage.clear('dataUsuario');</script>
 
     
   </body>

@@ -1,0 +1,67 @@
+CREATE DATABASE presupuestos
+
+USE presupuestos
+
+
+CREATE TABLE Estatus(
+idEstatus int IDENTITY(1,1) NOT NULL,
+descripcion char(10) NOT NULL
+PRIMARY KEY (idEstatus))
+
+
+CREATE TABLE Usuario(
+	idUsuario int IDENTITY(1,1) NOT NULL,
+	nombre char(40) NOT NULL,
+	apellidos char(80) NOT NULL,
+	email char(50) NOT NULL,
+	bandera_admin int NOT NULL,
+	contrasena char(15) NOT NULL,
+	fechaAlta timestamp NOT NULL
+PRIMARY KEY (idUsuario),
+idEstatus int FOREIGN KEY REFERENCES Estatus(idEstatus))
+
+
+CREATE TABLE Direccion(
+	idDireccion int IDENTITY(1,1) NOT NULL,
+	identificador char(20) NULL,
+	calle char(30) NOT NULL,
+	colonia char(30) NOT NULL,
+	pais char(20) NOT NULL,
+	estado char(25) NULL,
+	ciudad char(30) NULL,
+	cp int NULL,
+	descripcion char(45),
+	idUsuario int FOREIGN KEY REFERENCES Usuario(idUsuario)
+)
+
+CREATE TABLE Categoria(
+	idCategoria int IDENTITY(1,1) NOT NULL,
+	descripcion char(45) NOT NULL,
+	PRIMARY KEY (idCategoria)
+)
+
+CREATE TABLE Producto(
+	idProducto int IDENTITY(1,1) NOT NULL,
+	descripcion char(50) NOT NULL,
+	precio float NOT NULL,
+	imagen char(100) NOT NULL,
+	existencia int NOT NULL,
+	PRIMARY KEY (idProducto),
+	idCategoria int FOREIGN KEY REFERENCES Categoria(idCategoria)
+)
+
+CREATE TABLE MetodoPago(
+	idMetodoPago int IDENTITY(1,1) NOT NULL,
+	descripcion char(45) NOT NULL,
+	PRIMARY KEY (idMetodoPago)
+)
+
+CREATE TABLE Compra(
+	idCompra int IDENTITY(1,1) NOT NULL,
+	fechaCompra timestamp NOT NULL,
+	cantidad int NOT NULL,
+	PRIMARY KEY (idCompra),
+	idMetodoPago int FOREIGN KEY REFERENCES MetodoPago(idMetodoPago),
+	idUsuario int FOREIGN KEY REFERENCES Usuario(idUsuario),
+	idProducto int FOREIGN KEY REFERENCES Producto(idProducto)
+)

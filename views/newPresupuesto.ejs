@@ -1,0 +1,103 @@
+<%- include("headers/cabecera.index.ejs") %>
+
+  <body>
+    <%- include("headers/header.ejs") %>
+    <h1 class="p-3 text-center">Nuevo Presupuesto</h1>
+    
+    
+    <div class="container">
+      <!-- referencia a ruta create-->
+      <h1 class="p-3 text-center" style="text-align: left;font-size: 20px;">Resumen financiero</h1>
+      <table class="table  table-striped text-center mt-4">
+        <thead class="table-dark">
+          <tr class="bg-primary text-white">
+            <th scope="col">Ventas</th>
+            <th scope="col">Costos</th>
+            <th scope="col">Margen</th>
+            <th scope="col">%</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+              <td>
+                <input type="number" id="userinput" pattern="[0-9]* " readonly>
+            </td>
+              <td>
+                <input type="number" id="userinput" pattern="[0-9]* " readonly>
+              </td>
+              <td>
+                <input type="number" id="userinput" pattern="[0-9]* " readonly>
+              </td>
+              <td>
+                <input type="number" readonly>
+              </td>
+             
+            </tr>
+            
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+        <!-- referencia a ruta create-->
+        <h1 class="p-3 text-center" style="text-align: left;font-size: 20px;">Flujo de efectivo</h1>
+        <table class="table  table-striped text-center mt-4">
+          <thead class="table-dark">
+            <tr class="bg-primary text-white">
+            
+              <th scope="rowgroup">Ventas</th>
+              <th scope="rowgroup">Costos</th>
+              <th scope="rowgroup">Margen</th>
+              <th scope="rowgroup">%</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-primary text-white">
+            
+                <th scope="rowgroup">Ventas</th>
+               
+                    
+                
+                <td>
+                    <input type="number" id="userinput" pattern="[0-9]* " readonly>
+                    
+                </td>
+              </tr>
+              <tr class="bg-primary text-white">
+            
+              
+                <th scope="rowgroup">Costos</th>
+                
+                
+              </tr>
+              <tr>
+               
+                <td>
+                  <input type="number" id="userinput" pattern="[0-9]* " readonly>
+                </td>
+                <td>
+                  <input type="number" id="userinput" pattern="[0-9]* " readonly>
+                </td>
+                <td>
+                  <input type="number" readonly>
+                </td>
+               
+              </tr>
+              
+  
+          </tbody>
+        </table>
+      </div>
+  
+
+    <%- include("headers/footer.ejs") %>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/eliminarPre.js"></script>
+    
+  </body>
+
+  </html>
