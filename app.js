@@ -17,7 +17,7 @@ const CostoAdministrativo = require('./db/costo.administrativo');
 const CostoAdministrativoValor = require('./db/costo.administrativo.valor');
 const Recurso = require('./db/recurso');
 const RecursoPorcentaje = require('./db/recurso.porcentaje');
-//const Producto = require('./db/db.productos')
+
 
 //const serviciosMercadoLibre = require("./services/services");
 //const swaggerUi = require('swagger-ui-express')
@@ -44,11 +44,20 @@ app.set('views', __dirname + '/views');
 async function inicioServidor(){
   try{
       await Usuarios.sync({alter:true})
-      //await Producto.sync({alert:true})
+      await Presupuesto.sync({alter: true});  
+      await FlujoDeEfectivo.sync({alter: true});
+      await Ingreso.sync({alter: true}); 
+      await IngresoValor.sync({alter: true}); 
+      await CostoDirecto.sync({alter: true}); 
+      await CostoDirectoValor.sync({alter: true}); 
+      await CostoAdministrativo.sync({alter: true}); 
+      await CostoAdministrativoValor.sync({alter: true}); 
+      await Recurso.sync({alter: true}); 
+      await RecursoPorcentaje.sync({alter: true});
       await sequelize.authenticate();
+      
       //await Usuarios.newUsuario({nombre:'Brandon', apellidos: 'Contreras', email: 'braru@gmail.com',movil: '4652313413', telefono: '5642156023',ciudad:'Mexico',estado:'Mexico', cp:'56460',  contrasena: '123' , usuario: 'braru@gmail.com', fechaAlta:'2022', idEstatus: 2})
-
-    //await Usuarios.newUsuario({nombre:'Ari', apellidos: 'Olguin', email: 'admin@gmail.com',bandera_admin:'1',  contrasena: '123', fechaAlta:'2022', idEstatus: 1})
+      //await Usuarios.newUsuario({nombre:'Ari', apellidos: 'Olguin', email: 'admin@gmail.com',bandera_admin:'1',  contrasena: '123', fechaAlta:'2022', idEstatus: 1})
       //await Usuarios.newUsuario({nombre:'Brandon', apellidos: 'Contreras', email: 'braru@gmail.com',movil: '4652313413', telefono: '5642156023',ciudad:'Mexico',estado:'Mexico', cp:'56460',  contrasena: '123' , usuario: 'braru55', fechaAlta:'2022', idEstatus: 1})
 
       console.log('Conexión correcta con la db');
