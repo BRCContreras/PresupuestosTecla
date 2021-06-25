@@ -1,46 +1,7 @@
 const { DataTypes, Model } = require('sequelize')
-const sequelize = require('../db/conexion')
+const sequelize = require('../db/conexion');
+const Usuarios = require('../db/usuario');
 
-//Definicion del modelo de usuario
-const Usuarios = sequelize.define('Usuario', {
-    id : {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-    nombre: {
-        type: DataTypes.STRING(40),
-        allowNull: false,
-    },
-    apellidos: {
-        type: DataTypes.STRING(80),
-        allowNull: false,
-    },
-    email: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-    },
-    bandera_admin: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    contrasena: {
-        type: DataTypes.STRING(15),
-        allowNull: false
-    },
-    fechaAlta: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    idEstatus:{
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }
-}, {
-    timestamps: true
-})
-
-module.exports = Usuarios
 
 module.exports.existenciaDeUsuario = async (usr)=>{
     //chequear con la base de datos que exista el usuario
